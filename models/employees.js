@@ -1,15 +1,15 @@
-module.exports = function(sequelize, DataTypes) {
+// eslint-disable-next-line prettier/prettier
+module.exports = function (sequelize, DataTypes) {
   var Employee = sequelize.define("Employee", {
     name: DataTypes.STRING,
-    hire_date: DataTypes.DATE,
+    hireDate: DataTypes.DATE,
     birthday: DataTypes.DATE,
     department: DataTypes.STRING,
-    pay: DataTypes.DECIMAL(10,2),
+    pay: DataTypes.DECIMAL(10, 2),
     comments: DataTypes.TEXT
   });
   return Employee;
 };
-
 
 // class User extends Model {}
 // User.init({
