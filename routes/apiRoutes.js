@@ -1,4 +1,6 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
+
 
 module.exports = function(app) {
   // Get all Employees
@@ -19,6 +21,7 @@ module.exports = function(app) {
   app.delete("/api/employees/:id", function(req, res) {
     db.Employee.destroy({ where: { id: req.params.id } }).then(function(record) {
       res.json(record);
+
     });
   });
 };
