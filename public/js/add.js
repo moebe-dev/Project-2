@@ -6,33 +6,33 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  addEmployee: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/employees",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getEmployees: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/employees",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteEmployee: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/employees/" + id,
       type: "DELETE"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
+var refreshEmployees = function() {
+  API.getEmployees().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
         .text(example.text)
