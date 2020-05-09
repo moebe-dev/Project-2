@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 require("dotenv").config();
 var express = require("express");
 var session = require("express-session");
@@ -10,7 +11,7 @@ var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(session({
-  secret: 'secret',
+  secret: "secret",
   resave: true,
   saveUninitialized: true
 }));
@@ -33,8 +34,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
