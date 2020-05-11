@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "Titans2019!",
-    "database": "exampledb",
-=======
     "password": "",
     "database": "anni_db",
->>>>>>> 191d11caba8c04edbeedfc0bab7a7859e9d2b4f4
     "host": "localhost",
     "dialect": "mysql"
   },

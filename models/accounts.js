@@ -1,13 +1,31 @@
 // eslint-disable-next-line prettier/prettier
-module.exports = function (sequelize, DataTypes) {
-  var Accounts = sequelize.define("Accounts", {
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-  });
-  return Accounts;
-};
+var bcrypt = require("bcryptjs");
 
-// CREATE TABLE `users` (
-//     `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-//     `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-//    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  });
+
+  User.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  User.beforeCreate(function(user) {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
+  });
+  return User;
+};
