@@ -8,6 +8,9 @@ var $department = $("#department");
 var $pay = $("#pay");
 var $comments = $("#comments");
 
+var $submitBtn = $("#submit");
+var $employeeList = $("#employee-list");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   addEmployee: function(record) {
@@ -32,36 +35,43 @@ var API = {
       type: "DELETE"
     });
   }
+
+  //create route for one specific employee
 };
 
-// refreshEmployees gets new employees from the db and repopulates the list
-// var refreshEmployees = function() {
-//   API.getEmployees().then(function(data) {
-//     var $employee = data.map(function(employee) {
-//       var $a = $("<a>")
-//         .text(employee.text)
-//         .attr("href", "/employees/" + employee.id);
+//refreshEmployees gets new employees from the db and repopulates the list
 
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": employee.id
-//         })
-//         .append($a);
+var refreshEmployees = function() {
+  API.getEmployees().then(function(data) {
+    var $employee = data.map(function(employee) {
+      var $a = $("<a>")
+        .text(employee.name)
+        .attr("href", "/employees/" + employee.id);
 
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
+      var $li = $("<li>")
+        .attr({
+          class: "list-group-item",
+          "data-id": employee.id
+        })
+        .append($a);
 
-//       $li.append($button);
+      var $button = $("<button>")
+        .addClass("btn btn-info float-right info")
+        .text("Employee Info");
 
-//       return $li;
-//     });
+      var $button = $("<button>")
+        .addClass("btn btn-danger float-right delete")
+        .text("ｘ");
 
-//     $exampleList.empty();
-//     $exampleList.append($employee);
-//   });
-// };
+      $li.append($button);
+
+      return $li;
+    });
+
+    $employeeList.empty();
+    $employeeList.append($employee);
+  });
+};
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -78,12 +88,12 @@ var handleFormSubmit = function(event) {
   };
 
   if (!(employee.name && employee.hire_date)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter an employee name and hire date!");
     return;
   }
 
-  API.addExample(employee).then(function() {
-    refreshExamples();
+  API.addEmployee(employee).then(function() {
+    refreshEmployees();
   });
 
   $("#name").val("");
@@ -94,18 +104,32 @@ var handleFormSubmit = function(event) {
   $("#comments").val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
+// handleDeleteBtnClick is called when an employee's delete button is clicked
+// Remove the employee from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteEmployee(idToDelete).then(function() {
+    refreshEmployees();
   });
 };
 
-// Add event listeners to the submit and delete buttons
+// Get info of one specific employee
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
+
+//   API.deleteEmployee(idToDelete).then(function() {
+//     refreshEmployees();
+//   });
+// };
+
+// Add event listeners to the submit , get info and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$employeeList.on("click", ".delete", handleDeleteBtnClick);
+
+//Work on get info logic
+//$employeeList.on("click", ".info", handleDeleteBtnClick);
