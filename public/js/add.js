@@ -1,85 +1,105 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// Might need to change ID's based on front end
+
+var $name = $("#name");
+var $hireDate = $("#hireDate");
+var $birthday = $("#birthday");
+var $department = $("#department");
+var $pay = $("#pay");
+var $comments = $("#comments");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  addEmployee: function(record) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/employees",
+      data: JSON.stringify(record)
     });
   },
-  getExamples: function() {
+  getEmployees: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/employees",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteEmployee: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/employees/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// refreshEmployees gets new employees from the db and repopulates the list
+// var refreshEmployees = function() {
+//   API.getEmployees().then(function(data) {
+//     var $employee = data.map(function(employee) {
+//       var $a = $("<a>")
+//         .text(employee.text)
+//         .attr("href", "/employees/" + employee.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": employee.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $exampleList.empty();
+//     $exampleList.append($employee);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var employee = {
+    name: $name.val().trim(),
+    hireDate: $hireDate.val().trim(),
+    birthday: $birthday.val().trim(),
+    department: $department.val().trim(),
+    pay: parseFloat($pay.val().trim()),
+    comments: $comments.val().trim()
   };
+  /*
+  
+    name: DataTypes.STRING,
+    hire_date: DataTypes.DATE,
+    birthday: DataTypes.DATE,
+    department: DataTypes.STRING,
+    pay: DataTypes.DECIMAL(10,2),
+    comments: DataTypes.TEXT*/
 
-  if (!(example.text && example.description)) {
+  if (!(employee.name && employee.hire_date)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.addExample(employee).then(function() {
     refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $("#name").val("");
+  $("#hireDate").val("");
+  $("#birthday").val("");
+  $("#department").val("");
+  $("#pay").val("");
+  $("#comments").val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

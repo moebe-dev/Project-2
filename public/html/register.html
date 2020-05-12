@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Login Form</title>
-
-		<script src="https://code.jquery.com/jquery.js"></script>
+        <title>Register Form</title>
+        
+        <script src="https://code.jquery.com/jquery.js"></script>
 		<style>
 		.login-form {
 			width: 300px;
@@ -26,7 +26,7 @@
 			box-sizing:border-box;
 		}
 		.login-form input[type="submit"],
-		.buttons {
+        .buttons {
 			width: 100%;
 			padding: 15px;
 			background-color: #535b63;
@@ -35,21 +35,21 @@
 			cursor: pointer;
 			font-weight: bold;
 			color: #ffffff;
-			margin-bottom: 10px;
+            margin-bottom: 10px;
 		}
 		</style>
 	</head>
 	<body>
 		<div class="login-form">
-			<h1>Login Form</h1>
-			<form id="login">
-				<input type="text" name="username" placeholder="Username" required>
-				<input type="password" name="password" placeholder="Password" required>
+			<h1>Register Form</h1>
+			<form id="register">
+				<input type="text" name="newUsername" placeholder="Username" required>
+				<input type="password" name="newPassword" placeholder="Password" required>
 				<input type="submit">
 			</form>
 			<a href="/"><button class="buttons">Back</button></a>
-		</div>
-
-		<script src="../js/login.js" type="text/javascript"></script>
+        </div>
+        
+        <script src="../js/register.js" type="text/javascript"></script>
 	</body>
 </html>
