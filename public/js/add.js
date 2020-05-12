@@ -76,14 +76,6 @@ var handleFormSubmit = function (event) {
     pay: parseFloat($pay.val().trim()),
     comments: $comments.val().trim()
   };
-  /*
-  
-    name: DataTypes.STRING,
-    hire_date: DataTypes.DATE,
-    birthday: DataTypes.DATE,
-    department: DataTypes.STRING,
-    pay: DataTypes.DECIMAL(10,2),
-    comments: DataTypes.TEXT*/
 
   if (!(employee.name && employee.hire_date)) {
     alert("You must enter an example text and description!");
