@@ -9,16 +9,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
   <link rel="stylesheet" href="style.css" />
   <title>Anni Calendar | Dashboard</title>
 </head>
 
-<body class="bg-gray-700">
-  <header>
-    <div>
-      <h1>Anni Calendar</h1>
+<body class="font-body">
+  <nav class="flex items-center justify-between flex-wrap bg-teal-900	p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <svg class="fill-current h-35 w-35 mt-4" width="35" height="35" viewBox="0 0 35 35"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z" />
+      </svg>
+      <span class="font-semibold text-xl tracking-tight">Anni Calendar</span>
     </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="text-sm lg:flex-grow">
+        <a href="#responsive-header"
+          class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+          Add New Employee
+        </a>
+        <a href="#responsive-header"
+          class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+          Update Employee
+        </a>
+      </div>
   </header>
 
   <nav>
