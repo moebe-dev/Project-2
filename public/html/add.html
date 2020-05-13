@@ -9,153 +9,143 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!--Meta Tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Bulma CDN-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css">
-    <!--Font Awesome CDN-->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!--Favicon CDN-->
-    <link rel="shortcut icon" type="image/png" href="https://bit.ly/3bkviKy">
-    <!--Title-->
-    <title>Home</title>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANNI</title>
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!--Header-->
-    <div class="header">
-        <img src="https://bit.ly/3bjFkf3" alt="Anni">
-
-
-        <!-- button to test the routing once user is logged in -->
-        <a href="/logout"><button>Logout</button></a>
-        <a href="/add"><button>add</button></a>
-        <a href="/update"><button>update</button></a>
-        <a href="/dashboard"><button>dashboard</button></a>
-        <a href="/dashboardtest"><button>dashboard test</button></a>
-        <!-- ------------------------------------------------- -->
-
-    </div>
-    <!--Navbar-->
-    <div class="tabs is-centered is-boxed is-medium">
-        <ul>
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-calendar-day" aria-hidden="true"></i></span>
-                    <span>Calendar</span>
-                </a>
-            </li>
-
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-file-certificate" aria-hidden="true"></i></span>
-                    <span>Certifications</span>
-                </a>
-            </li>
-
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-address-book" aria-hidden="true"></i></span>
-                    <span>Contacts</span>
-                </a>
-            </li>
-
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-key" aria-hidden="true"></i></span>
-                    <span>Password Reset</span>
-                </a>
-            </li>
-
-            <li>
-                <a>
-                    <span class="icon is-small"><i class="fad fa-lights-holiday" aria-hidden="true"></i></span>
-                    <span>Holidays</span>
-                </a>
-            </li>
-
-        </ul>
-    </div>
+  <h1>ANNI
+    <h1>
 </body>
 
 </html>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ANNI</title>
-    <link rel="stylesheet" href="css/style.css" />    
-  </head>
-  <body>
-    <h1>Sign In 
-  <h1>
-  </body>
-</html>
 <html>
-  <html>
+
 <head>
-<style>
-h1 {text-align: center;}
-p {text-align: center;}
-</style>
+  <title>Registration Form</title>
 </head>
+
 <body>
-    <title>Registration Form</title>
-  </head>
-  <body>
-    <link href="registration.css" type="text/css" rel="stylesheet" />
-      <form
+
+  <h2 class>Sign Up</h2>
+  <form name="form1">
+    <div class="container">
+      <div class="form_group">
+
+        <label><br><strong>Name: </strong><br><br></label>
+
+        <label>First Name </label>
+        <input type="text" name="#firstName" id="#firstName" value="" placeholder="First Name" maxlength="20" />
+        
+        <label>Last Name </label>
+        <input type="text" name="#lastName" id="#lastName" value="" placeholder="Last Name" maxlength="20" />
+
+      </div>
+      <div class="form_group">
     
-      name="form1"
-      action="modified.php"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <div class="container">
-        <div class="form_group">
-          <label>Name:</label>
-          <p></p>
-          <input type="text" name="#name" id="#name" value="" placeholder="ENTER YOUR NAME" maxlength="20" />
-        </div>
-        <div class="form_group">
-          <p></p> 
-          <label>Hire Date:</label>
-          <p></p>
-          <input type="text" name="#hireDate" id="#hireDate" value="" placeholder="ENTER YOUR HIRE DATE" maxlength="10" />
-        </div>
-        <div class="form_group">
-          <p></p>
-          <label>Birthday:</label>
-          <p></p>
-          <input type="text" name="#birthday" id="#birthday" value="" placeholder="ENTER YOUR BIRTHDAY" maxlength="10"/>   
-        </div>
+        <label><br><strong>Hire Date: </strong><br><br></label>
+
+        <label>Month:</label><select id="hireMonth" name="hireMonth">
+          <script>
+            for(i=0; i<11; i++){
+              var month = $("<option>");
+              month.attr("value" , i + 1);
+              month.text(i+1);
+              $("#hireMonth").append(month);
+            }
+          </script>
+        </select>
+
+        <label>Day:</label><select id="hireDay" name="hireDay">
+          <script>
+            for(i=0; i<31; i++){
+              var day = $("<option>");
+              day.attr("value" , i + 1);
+              day.text(i+1);
+              $("#hireDay").append(day);
+            }
+          </script>
+        </select>
+
+        <label>Year:</label><select id="hireYear" name="hireYear">
+          <script>
+            for(i=1940; i < 2003; i++){
+              var year = $("<option>");
+              year.attr("value" , i);
+              year.text(i);
+              $("#hireYear").append(year);
+            }
+          </script>
+        </select>
+      </div>
+
+      <div class="form_group">
+    
+        <label><br><strong>Birthday: </strong><br><br></label>
+
+        <label>Month:</label><select id="birthMonth" name="birthMonth">
+          <script>
+            for(i=0; i<11; i++){
+              var month = $("<option>");
+              month.attr("value" , i + 1);
+              month.text(i+1);
+              $("#birthMonth").append(month);
+            }
+          </script>
+        </select>
+
+        <label>Day:</label><select id="birthDay" name="birthDay">
+          <script>
+            for(i=0; i<31; i++){
+              var day = $("<option>");
+              day.attr("value" , i + 1);
+              day.text(i+1);
+              $("#birthDay").append(day);
+            }
+          </script>
+        </select>
+
+        <label>Year:</label><select id="birthYear" name="birthYear">
+          <script>
+            for(i=1940; i < 2003; i++){
+              var year = $("<option>");
+              year.attr("value" , i);
+              year.text(i);
+              $("#birthYear").append(year);
+            }
+          </script>
+        </select>
+      </div>
+ 
+      <label><br>Department:</label>
+     
+      <input type="text" name="#department" id="#department" value="" placeholder="Enter your department"
+        maxlength="100" />
+    </div>
     </div>
     <div class="form_group">
-      <p></p>
-      <label>Department:</label>
-      <p></p>
-      <input type="text" name="#department" id="#department" value="" placeholder="ENTER YOUR DEPARTMENT" maxlength="100"/>   
-    </div>      
-</div>
-<div class="form_group">
-  <p></p>
-  <label>Pay Rate:</label>
-  <p></p>
-  <input type="text" name="#pay" id="#pay" value="" placeholder="ENTER YOUR SALARY" maxlength="1000" />   
-</div>
-</div>
-<div class="form_group">
-  <p></p>
-  <label>Comments:</label>
-  <p></p>
-  <input type="text" name="#comments" id="#comments" value="" placeholder="ENTER YOUR COMMENT" maxlength="1000" />   
-</div>    
-       </div>
-      </div>
-      <form method="get" action="/$button">
-            <button type="submit">Submit</button>
-    </form>
-  </body>
+    
+      <label>Pay Rate:</label>
+    
+      <input type="text" name="#pay" id="#pay" value="" placeholder="Enter your Salary" maxlength="1000" />
+    </div>
+    </div>
+    <div class="form_group">
+      
+      <label>Comments:</label>
+      
+      <input type="text" name="#comments" id="#comments" value="" placeholder="Enter your comments" maxlength="1000" />
+    </div>
+
+
+</body>
+
 </html>

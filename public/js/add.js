@@ -1,9 +1,21 @@
 // Get references to page elements
 // Might need to change ID's based on front end
 
-var $name = $("#name");
-var $hireDate = $("#hireDate");
-var $birthday = $("#birthday");
+//Name reference variables
+var $firstName = $("#firstName");
+var $lastName = $("#lastName");
+
+//Hire Date reference variables
+var $hireDay = $("#hireDay");
+var $hireMonth = $("#hireMonth");
+var $hireYear = $("#hireYear");
+
+//Birthday reference variables
+var $birthDay = $("#birthDay");
+var $birthMonth = $("#birthMonth");
+var $birthYear = $("#birthYear");
+
+//Miscellaneous Form reference variables
 var $department = $("#department");
 var $pay = $("#pay");
 var $comments = $("#comments");
@@ -45,7 +57,7 @@ var refreshEmployees = function() {
   API.getEmployees().then(function(data) {
     var $employee = data.map(function(employee) {
       var $a = $("<a>")
-        .text(employee.name)
+        .text(employee.firstName + " " + employee.lastName)
         .attr("href", "/employees/" + employee.id);
 
       var $li = $("<li>")
@@ -79,9 +91,14 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var employee = {
-    name: $name.val().trim(),
-    hireDate: $hireDate.val().trim(),
-    birthday: $birthday.val().trim(),
+    firstName: $firstName.val().trim(),
+    lastName: $lastName.val().trim(),
+    hireDateYear: $hireYear.val().trim(),
+    hireDateMonth: $hireMonth.val().trim(),
+    hireDateDay: $hireDay.val().trim(),
+    birthdayYear: $birthYear.val().trim(),
+    birthdayMonth: $birthMonth.val().trim(),
+    birthdayDay: $birthDay.val().trim(),
     department: $department.val().trim(),
     pay: parseFloat($pay.val().trim()),
     comments: $comments.val().trim()
@@ -96,9 +113,17 @@ var handleFormSubmit = function(event) {
     refreshEmployees();
   });
 
-  $("#name").val("");
-  $("#hireDate").val("");
-  $("#birthday").val("");
+  $("#firstName").val("");
+  $("#lastName").val("");
+
+  $("#hireDay").val("");
+  $("#hireMonth").val("");
+  $("#hireYear").val("");
+
+  $("#birthDay").val("");
+  $("#birthMonth").val("");
+  $("#birthYear").val("");
+
   $("#department").val("");
   $("#pay").val("");
   $("#comments").val("");
