@@ -1,15 +1,23 @@
-var db = require("../models");
+/* eslint-disable prettier/prettier */
+// var db = require("../models");
+// var path = require("path");
 
-module.exports = function(app) {
-  // Load index page
-  app.get("/login", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/html/login.html"))
-  });
+// var passport = require("../config/passport");
 
+// eslint-disable-next-line prettier/prettier
+// module.exports = function (app) {
+// Load index page
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "../public/html/landing.html"));
+// });
 
+// app.get("/register", function (req, res) {
+//   res.sendFile(path.join(__dirname, "../public/html/register.html"));
+// });
 
-  // Render 404 page for any unmatched routes
+ 
+// Render 404 page for any unmatched routes
 //   app.get("*", function(req, res) {
-    // res.render("404");
+// res.render("404");
 //   });
-};
+// };

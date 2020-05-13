@@ -1,5 +1,5 @@
 {
-  "name": "Project-2-ANNI-APP",
+  "name": "anni-app",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.0",
@@ -20,6 +22,8 @@
     "express-session": "^1.17.1",
     "jsonfile": "^6.0.1",
     "mysql2": "^1.7.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "sequelize": "^5.21.7",
     "tailwindcss": "^1.4.5"
   },
