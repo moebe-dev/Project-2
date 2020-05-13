@@ -10,24 +10,103 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bulma CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css">
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--Favicon CDN-->
+    <link rel="shortcut icon" type="image/png" href="https://bit.ly/3bkviKy">
+    <!--Title-->
+    <title>Home</title>
+</head>
+
+<body>
+    <!--Header-->
+    <div class="header">
+        <img src="https://bit.ly/3bjFkf3" alt="Anni">
+
+
+        <!-- button to test the routing once user is logged in -->
+        <a href="/logout"><button>Logout</button></a>
+        <a href="/add"><button>add</button></a>
+        <a href="/update"><button>update</button></a>
+        <a href="/dashboard"><button>dashboard</button></a>
+        <a href="/dashboardtest"><button>dashboard test</button></a>
+        <!-- ------------------------------------------------- -->
+
+    </div>
+    <!--Navbar-->
+    <div class="tabs is-centered is-boxed is-medium">
+        <ul>
+            <li>
+                <a>
+                    <span class="icon is-small"><i class="fas fa-calendar-day" aria-hidden="true"></i></span>
+                    <span>Calendar</span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon is-small"><i class="fas fa-file-certificate" aria-hidden="true"></i></span>
+                    <span>Certifications</span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon is-small"><i class="fas fa-address-book" aria-hidden="true"></i></span>
+                    <span>Contacts</span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon is-small"><i class="fas fa-key" aria-hidden="true"></i></span>
+                    <span>Password Reset</span>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <span class="icon is-small"><i class="fad fa-lights-holiday" aria-hidden="true"></i></span>
+                    <span>Holidays</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</body>
+
+</html>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANNI</title>
     <link rel="stylesheet" href="css/style.css" />    
   </head>
   <body>
-    <h1>ANNI
+    <h1>Sign In 
   <h1>
   </body>
 </html>
 <html>
-  <head>
+  <html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+</style>
+</head>
+<body>
     <title>Registration Form</title>
   </head>
   <body>
     <link href="registration.css" type="text/css" rel="stylesheet" />
-    <h2 class>Sign Up</h2>
-    <form
+      <form
     
       name="form1"
       action="modified.php"
@@ -38,43 +117,45 @@
         <div class="form_group">
           <label>Name:</label>
           <p></p>
-          <input type="text" name="#name" id="#name" value="" placeholder="Enter your name" maxlength="20" />
+          <input type="text" name="#name" id="#name" value="" placeholder="ENTER YOUR NAME" maxlength="20" />
         </div>
         <div class="form_group">
           <p></p> 
           <label>Hire Date:</label>
           <p></p>
-          <input type="text" name="#hireDate" id="#hireDate" value="" placeholder="Enter your hire date" maxlength="10" />
+          <input type="text" name="#hireDate" id="#hireDate" value="" placeholder="ENTER YOUR HIRE DATE" maxlength="10" />
         </div>
         <div class="form_group">
           <p></p>
           <label>Birthday:</label>
           <p></p>
-          <input type="text" name="#birthday" id="#birthday" value="" placeholder="Enter your birthday" maxlength="10"/>   
+          <input type="text" name="#birthday" id="#birthday" value="" placeholder="ENTER YOUR BIRTHDAY" maxlength="10"/>   
         </div>
     </div>
     <div class="form_group">
       <p></p>
       <label>Department:</label>
       <p></p>
-      <input type="text" name="#department" id="#department" value="" placeholder="Enter your department" maxlength="100"/>   
+      <input type="text" name="#department" id="#department" value="" placeholder="ENTER YOUR DEPARTMENT" maxlength="100"/>   
     </div>      
 </div>
 <div class="form_group">
   <p></p>
   <label>Pay Rate:</label>
   <p></p>
-  <input type="text" name="#pay" id="#pay" value="" placeholder="Enter your Salary" maxlength="1000" />   
+  <input type="text" name="#pay" id="#pay" value="" placeholder="ENTER YOUR SALARY" maxlength="1000" />   
 </div>
 </div>
 <div class="form_group">
   <p></p>
-  <label>Comments:</label>g
+  <label>Comments:</label>
   <p></p>
-  <input type="text" name="#comments" id="#comments" value="" placeholder="Enter your comments" maxlength="1000" />   
+  <input type="text" name="#comments" id="#comments" value="" placeholder="ENTER YOUR COMMENT" maxlength="1000" />   
 </div>    
        </div>
       </div>
-
+      <form method="get" action="/$button">
+            <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
