@@ -9,7 +9,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+
+  <script src="https://code.jquery.com/jquery.js"></script>
   <title>Anni Calendar | Dashboard</title>
 </head>
 
@@ -25,26 +27,21 @@
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <a href="#responsive-header"
+        <a href="/"
+          class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+          Home
+        </a>
+        <a href="/add"
           class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
           Add New Employee
         </a>
-        <a href="#responsive-header"
+        <a href="/update"
           class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
           Update Employee
         </a>
       </div>
   </header>
 
-  <nav>
-    <div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/update">Update Employee</a></li>
-        <li><a href="/add">Add Employee</a></li>
-      </ul>
-    </div>
-  </nav>
   <!-- This is an example component -->
   <div>
 
@@ -60,7 +57,7 @@
     </style>
 
     <div class="antialiased sans-serif bg-gray-100 h-screen">
-      <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
+      <div x-data="app()" x-init="[getEmployees(), initDate(), getNoOfDays()]" x-cloak>
         <div class="container mx-auto px-4 py-2 md:py-24">
 
           <!-- <div class="font-bold text-gray-800 text-xl mb-4">
@@ -211,16 +208,7 @@
       <script>
         const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-        function app() {
-          return {
-            month: '',
-            year: '',
-            no_of_days: [],
-            blankdays: [],
-            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-
-            events: [
+        var eventsAll = [
               {
                 event_date: new Date(2020, 3, 1),
                 event_title: "April Fool's Day",
@@ -237,8 +225,23 @@
                 event_date: new Date(2020, 3, 16),
                 event_title: "Upcoming Event",
                 event_theme: 'green'
+              },
+
+              {
+                event_date: new Date(2020, 4, 25),
+                event_title: "work anniversary",
+                event_theme: 'yellow'
               }
-            ],
+            ];
+
+        function app() {
+          return {
+            month: '',
+            year: '',
+            no_of_days: [],
+            blankdays: [],
+            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            events: eventsAll,
             event_title: '',
             event_date: '',
             event_theme: 'blue',
@@ -286,6 +289,43 @@
               // open the modal
               this.openEventModal = true;
               this.event_date = new Date(this.year, this.month, date).toDateString();
+            }, 
+
+            getEmployees() {
+              var updateEvents = [];
+              $.get("/api/employees/anniversary", function(data) {
+                for (let i = 0; i < data.length; i++) { 
+
+                  var currentYear = 2020;
+                  var year = data[i].hireDateYear;
+                  var month = data[i].hireDateMonth;
+                  var day = data[i].hireDateDay;
+                  var firstName = data[i].firstName;
+            
+                  eventsAll.push({
+                    event_date: new Date(currentYear, month, day),
+                    event_title: data[i].firstName  + " work anniversary",
+                    event_theme: "yellow"
+                  })
+                }
+              })
+              $.get("/api/employees/birthday", function(data) {
+                for (let i = 0; i < data.length; i++) { 
+
+                  var currentYear = 2020;
+                  // var year = data[i].birthdayYear;
+                  var month = data[i].birthdayMonth;
+                  var day = data[i].birthdayDay;
+                  var firstName = data[i].firstName;
+            
+                  eventsAll.push({
+                    event_date: new Date(currentYear, month, day),
+                    event_title: data[i].firstName  + " birthday",
+                    event_theme: "green"
+                  })
+                }
+              })
+              
             },
 
             addEvent() {
@@ -331,6 +371,8 @@
           }
         }
       </script>
+
+      <!-- <script src="../js/dashboard.js" type="text/javascript"></script> -->
     </div>
 
 
