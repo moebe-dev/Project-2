@@ -11,7 +11,9 @@ var $hireMonth = $("#hireMonth");
 var $hireYear = $("#hireYear");
 
 //Birthday reference variables
-var $birthday = $("#birthday");
+var $birthDay = $("#birthDay");
+var $birthMonth = $("#birthMonth");
+var $birthYear = $("#birthYear");
 
 //Miscellaneous Form reference variables
 var $department = $("#department");
@@ -91,10 +93,12 @@ var handleFormSubmit = function(event) {
   var employee = {
     firstName: $firstName.val().trim(),
     lastName: $lastName.val().trim(),
-    hireYear: $hireYear.val().trim(),
-    hireMonth: $hireMonth.val().trim(),
-    hireDay: $hireDay.val().trim(),
-    birthday: $birthday.val().trim(),
+    hireDateYear: $hireYear.val().trim(),
+    hireDateMonth: $hireMonth.val().trim(),
+    hireDateDay: $hireDay.val().trim(),
+    birthdayYear: $birthYear.val().trim(),
+    birthdayMonth: $birthMonth.val().trim(),
+    birthdayDay: $birthDay.val().trim(),
     department: $department.val().trim(),
     pay: parseFloat($pay.val().trim()),
     comments: $comments.val().trim()
@@ -111,8 +115,15 @@ var handleFormSubmit = function(event) {
 
   $("#firstName").val("");
   $("#lastName").val("");
-  $("#hireDate").val("");
-  $("#birthday").val("");
+
+  $("#hireDay").val("");
+  $("#hireMonth").val("");
+  $("#hireYear").val("");
+
+  $("#birthDay").val("");
+  $("#birthMonth").val("");
+  $("#birthYear").val("");
+
   $("#department").val("");
   $("#pay").val("");
   $("#comments").val("");
