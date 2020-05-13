@@ -29,3 +29,14 @@ Users will first have to create login creditinals and then can sign-in into the 
 * Three routes serve the connection to the back-end of the application from the front-end. htmlRoutes renders the information displayed on the HTML pages. apiRoutes renders the information when a user inserts new data from the form. loginRoutes renders the users creditials from when a user creates their login information/or logs in. 
 
 * Models folder house the javascript files and the schema and seeds files where the data is being stored when a user inputs employee information in.
+
+# Credits 
+
+For this project we used a TailwindCSS component to create the calendar section of the dashboard. 
+
+Author: Mithicher Baro
+Date: 05/13/2020
+Title of Source Code: Calendar UI with TailwindCSS and AlpineJS
+Code Version: 1.2.0
+Type: TailwindCSS and Alpine.js
+Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindcss-and-alpinejs
