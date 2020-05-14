@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Racer2016",
+    "password": "",
     "database": "anni_db",
     "host": "localhost",
     "dialect": "mysql"
