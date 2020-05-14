@@ -13,27 +13,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANNI</title>
+  <title>ANNI - employee add</title>
   <!-- <link rel="stylesheet" href="css/style.css" /> -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
+
+  
 </head>
 
 <body>
-  <h1>ANNI
-    <h1>
-</body>
+  <h1>ANNI<h1>
 
-</html>
-<html>
-
-<head>
-  <title>Registration Form</title>
-</head>
-
-<body>
 
   <h2 class>Sign Up</h2>
   <form name="form1">
@@ -43,10 +35,10 @@
         <label><br><strong>Name: </strong><br><br></label>
 
         <label>First Name </label>
-        <input type="text" name="#firstName" id="#firstName" value="" placeholder="First Name" maxlength="20" />
+        <input type="text" name="firstName" id="firstName" value="" placeholder="First Name" maxlength="20" />
         
         <label>Last Name </label>
-        <input type="text" name="#lastName" id="#lastName" value="" placeholder="Last Name" maxlength="20" />
+        <input type="text" name="lastName" id="lastName" value="" placeholder="Last Name" maxlength="20" />
 
       </div>
       <div class="form_group">
@@ -124,28 +116,34 @@
           </script>
         </select>
       </div>
- 
-      <label><br>Department:</label>
-     
-      <input type="text" name="#department" id="#department" value="" placeholder="Enter your department"
-        maxlength="100" />
-    </div>
-    </div>
-    <div class="form_group">
-    
-      <label>Pay Rate:</label>
-    
-      <input type="text" name="#pay" id="#pay" value="" placeholder="Enter your Salary" maxlength="1000" />
-    </div>
-    </div>
-    <div class="form_group">
+      <div class="form_group">
+        <label><br>Department:</label>
       
-      <label>Comments:</label>
+        <input type="text" name="department" id="department" value="" placeholder="Enter your department"
+          maxlength="100" />
+      </div>
+    
+      <div class="form_group">
       
-      <input type="text" name="#comments" id="#comments" value="" placeholder="Enter your comments" maxlength="1000" />
-    </div>
+        <label>Pay Rate:</label>
+        <input type="text" name="pay" id="pay" value="" placeholder="Enter your Salary" maxlength="1000" />
+      </div>
+      
+      <div class="form_group">
+        
+        <label>Comments:</label>
+        
+        <input type="text" name="comments" id="comments" value="" placeholder="Enter your comments" maxlength="1000" />
+      </div>
 
 
+      <button type="submit" id="submit">Submit</button>
+
+  </div>
+  </form>
+
+  <a href="/"><button>Home</button></a>
+  <script src="../js/add.js" type="text/javascript"></script>
 </body>
 
 </html>

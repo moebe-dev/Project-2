@@ -46,7 +46,19 @@ module.exports = function(app) {
 
   // Create a new employee
   app.post("/api/employees", function(req, res) {
-    db.Employee.create(req.body).then(function(record) {
+    db.Employee.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      hireDateYear: req.body.hireDateYear,
+      hireDateMonth: req.body.hireDateMonth,
+      hireDateDay: req.body.hireDateDay,
+      birthdayYear: req.body.birthdayYear,
+      birthdayMonth: req.body.birthdayMonth,
+      birthdayDay: req.body.birthdayDay,
+      department: req.body.department,
+      pay: req.body.pay,
+      comments: req.body.comments
+    }).then(function(record) {
       res.json(record);
     });
   });
@@ -56,6 +68,28 @@ module.exports = function(app) {
     db.Employee.destroy({ where: { id: req.params.id } }).then(function(record) {
       res.json(record);
     });
+  });
+
+  app.put("/api/employeeUpdate/:id", function(req, res) {
+    console.log(req.body)
+    db.Employee.update({
+      hireDateYear: req.body.hireDateYear,
+      hireDateMonth: req.body.hireDateMonth,
+      hireDateDay: req.body.hireDateDay,
+      birthdayYear: req.body.birthdayYear,
+      birthdayMonth: req.body.birthdayMonth,
+      birthdayDay: req.body.birthdayDay,
+      department: req.body.department,
+      pay: req.body.pay,
+      comments: req.body.comments
+    },{
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
   });
 
 

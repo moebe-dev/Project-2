@@ -31,7 +31,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/employees",
+      url: "/api/employees",
       data: JSON.stringify(record)
     });
   },
@@ -53,43 +53,44 @@ var API = {
 
 //refreshEmployees gets new employees from the db and repopulates the list
 
-var refreshEmployees = function() {
-  API.getEmployees().then(function(data) {
-    var $employee = data.map(function(employee) {
-      var $a = $("<a>")
-        .text(employee.firstName + " " + employee.lastName)
-        .attr("href", "/employees/" + employee.id);
+// var refreshEmployees = function() {
+//   API.getEmployees().then(function(data) {
+//     var $employee = data.map(function(employee) {
+//       var $a = $("<a>")
+//         .text(employee.firstName + " " + employee.lastName)
+//         .attr("href", "/employees/" + employee.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": employee.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": employee.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-info float-right info")
-        .text("Employee Info");
+//       var $button = $("<button>")
+//         .addClass("btn btn-info float-right info")
+//         .text("Employee Info");
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $employeeList.empty();
-    $employeeList.append($employee);
-  });
-};
+//     $employeeList.empty();
+//     $employeeList.append($employee);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
+  // console.log("submit test");
   var employee = {
     firstName: $firstName.val().trim(),
     lastName: $lastName.val().trim(),
@@ -103,14 +104,24 @@ var handleFormSubmit = function(event) {
     pay: parseFloat($pay.val().trim()),
     comments: $comments.val().trim()
   };
+  // console.log("Employee submit: ", employee);
 
-  if (!(employee.name && employee.hire_date)) {
+  if (
+    !(
+      employee.firstName &&
+      employee.lastName &&
+      employee.hireYear &&
+      employee.hireMonth &&
+      employee.hireDay
+    )
+  ) {
     alert("You must enter an employee name and hire date!");
     return;
   }
 
   API.addEmployee(employee).then(function() {
-    refreshEmployees();
+    // refreshEmployees();
+    console.log("successfully added");
   });
 
   $("#firstName").val("");

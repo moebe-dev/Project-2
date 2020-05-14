@@ -4,14 +4,148 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
-    <h1>ANNI Update Form</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANNI</title>
+  <!-- <link rel="stylesheet" href="css/style.css" /> -->
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+  <h1>ANNI
+    <h1>
+
+
+  <h2 class>Update</h2>
+  <form name="form1">
+    <div class="container">
+      <div class="form_group">
+
+        <label><br><strong>Name: </strong><br><br></label>
+
+        <div class="form-group">
+            <label for="update-name">Employee to Update:</label>
+            <select class="update-name"></select>
+        </div>
+
+        <!-- <label>First Name </label>
+        <input type="text" name="#firstName" id="#firstName" value="" placeholder="First Name" maxlength="20" />
+        
+        <label>Last Name </label>
+        <input type="text" name="#lastName" id="#lastName" value="" placeholder="Last Name" maxlength="20" /> -->
+
+        
+      <div class="form_group">
     
+        <label><br><strong>Hire Date: </strong><br><br></label>
+
+        <label>Month:</label><select id="hireMonth" name="hireMonth">
+          <script>
+            for(i=0; i<11; i++){
+              var month = $("<option>");
+              month.attr("value" , i + 1);
+              month.text(i+1);
+              $("#hireMonth").append(month);
+            }
+          </script>
+        </select>
+
+        <label>Day:</label><select id="hireDay" name="hireDay">
+          <script>
+            for(i=0; i<31; i++){
+              var day = $("<option>");
+              day.attr("value" , i + 1);
+              day.text(i+1);
+              $("#hireDay").append(day);
+            }
+          </script>
+        </select>
+
+        <label>Year:</label><select id="hireYear" name="hireYear">
+          <script>
+            for(i=1940; i < 2003; i++){
+              var year = $("<option>");
+              year.attr("value" , i);
+              year.text(i);
+              $("#hireYear").append(year);
+            }
+          </script>
+        </select>
+      </div>
+
+      <div class="form_group">
+    
+        <label><br><strong>Birthday: </strong><br><br></label>
+
+        <label>Month:</label><select id="birthMonth" name="birthMonth">
+          <script>
+            for(i=0; i<11; i++){
+              var month = $("<option>");
+              month.attr("value" , i + 1);
+              month.text(i+1);
+              $("#birthMonth").append(month);
+            }
+          </script>
+        </select>
+
+        <label>Day:</label><select id="birthDay" name="birthDay">
+          <script>
+            for(i=0; i<31; i++){
+              var day = $("<option>");
+              day.attr("value" , i + 1);
+              day.text(i+1);
+              $("#birthDay").append(day);
+            }
+          </script>
+        </select>
+
+        <label>Year:</label><select id="birthYear" name="birthYear">
+          <script>
+            for(i=1940; i < 2003; i++){
+              var year = $("<option>");
+              year.attr("value" , i);
+              year.text(i);
+              $("#birthYear").append(year);
+            }
+          </script>
+        </select>
+      </div>
+      <div class="form_group">
+        <label><br>Department:</label>
+      
+        <input type="text" name="department" id="department" value="" placeholder="Enter your department"
+          maxlength="100" />
+      </div>
+    
+      <div class="form_group">
+      
+        <label>Pay Rate:</label>
+        <input type="text" name="pay" id="pay" value="" placeholder="Enter your Salary" maxlength="1000" />
+      </div>
+      
+      <div class="form_group">
+        
+        <label>Comments:</label>
+        
+        <input type="text" name="comments" id="comments" value="" placeholder="Enter your comments" maxlength="1000" />
+      </div>
+
+
+      <button type="submit" class="update">Update</button>
+      <button type="submit" class="delete">Delete</button>
+</div>
+</form>
+
+<a href="/"><button>Home</button></a>
+
+<script src="../js/update.js"></script>
 </body>
+
 </html>
