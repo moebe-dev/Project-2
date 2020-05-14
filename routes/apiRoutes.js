@@ -1,18 +1,18 @@
-/* eslint-disable prettier/prettier */
+/* ESLint-disable prettier/prettier */
 var db = require("../models");
 var passport = require("../config/passport");
 
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get all Employees
-  app.get("/api/employees", function(req, res) {
-    db.Employee.findAll({}).then(function(employees) {
+  app.get("/api/employees", function (req, res) {
+    db.Employee.findAll({}).then(function (employees) {
       // console.log("employees: ", employees[0].dataValues);
       res.json(employees);
     });
   });
 
-  app.get("/api/employees/anniversary", function(req, res) {
+  app.get("/api/employees/anniversary", function (req, res) {
     db.Employee.findAll({
       order: [
         ["hireDateMonth", "ASC"],
@@ -20,15 +20,15 @@ module.exports = function(app) {
         ["lastName", "ASC"],
         ["firstName", "ASC"]
       ]
-    }).then(function(employees) {
-      for (let i = 0; i < employees.length; i++) { 
+    }).then(function (employees) {
+      for (let i = 0; i < employees.length; i++) {
         // console.log("employees anni returned: ", employees[i].dataValues);
       }
       res.json(employees);
     });
   });
 
-  app.get("/api/employees/birthday", function(req, res) {
+  app.get("/api/employees/birthday", function (req, res) {
     db.Employee.findAll({
       order: [
         ["birthdayMonth", "ASC"],
@@ -36,16 +36,16 @@ module.exports = function(app) {
         ["lastName", "ASC"],
         ["firstName", "ASC"]
       ]
-    }).then(function(employees) {
+    }).then(function (employees) {
       for (let i = 0; i < employees.length; i++) {
         // console.log("employees bday returned: ", employees[i].dataValues);
-        }
+      }
       res.json(employees);
     });
   });
 
   // Create a new employee
-  app.post("/api/employees", function(req, res) {
+  app.post("/api/employees", function (req, res) {
     db.Employee.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -58,19 +58,19 @@ module.exports = function(app) {
       department: req.body.department,
       pay: req.body.pay,
       comments: req.body.comments
-    }).then(function(record) {
+    }).then(function (record) {
       res.json(record);
     });
   });
 
   // Delete an employee by id
-  app.delete("/api/employees/:id", function(req, res) {
-    db.Employee.destroy({ where: { id: req.params.id } }).then(function(record) {
+  app.delete("/api/employees/:id", function (req, res) {
+    db.Employee.destroy({ where: { id: req.params.id } }).then(function (record) {
       res.json(record);
     });
   });
 
-  app.put("/api/employeeUpdate/:id", function(req, res) {
+  app.put("/api/employeeUpdate/:id", function (req, res) {
     console.log(req.body)
     db.Employee.update({
       hireDateYear: req.body.hireDateYear,
@@ -82,39 +82,39 @@ module.exports = function(app) {
       department: req.body.department,
       pay: req.body.pay,
       comments: req.body.comments
-    },{
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbPost) {
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function (dbPost) {
         res.json(dbPost);
       });
   });
 
 
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.redirect("/members");
   });
 
-  app.post("/api/signup", function(req, res) {
+  app.post("/api/signup", function (req, res) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    }).then(function() {
+    }).then(function () {
       res.redirect(307, "/api/login");
-    }).catch(function(err) {
+    }).catch(function (err) {
       console.log(err);
       res.json(err);
     });
   });
 
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       res.json({});
     } else {

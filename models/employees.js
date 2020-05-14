@@ -1,4 +1,4 @@
-// eslint-disable-next-line prettier/prettier
+// ESLint-disable-next-line prettier/prettier
 module.exports = function (sequelize, DataTypes) {
   var Employee = sequelize.define("Employee", {
     firstName: {

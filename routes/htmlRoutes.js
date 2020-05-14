@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+/* ESLint-disable prettier/prettier */
 var path = require("path");
 // var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -29,7 +29,7 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/members", isAuthenticated, function(req, res) {
+  app.get("/members", isAuthenticated, function (req, res) {
     // console.log("req.user(members): ", req.user);
     res.sendFile(path.join(__dirname, "../public/html/home.html"));
   });
@@ -51,7 +51,7 @@ module.exports = function (app) {
     }
   });
 
-  /* eslint-disable-next-line prettier/prettier */
+  /* ESLint-disable-next-line prettier/prettier */
   app.get("/dashboard", function (req, res) {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
@@ -69,7 +69,7 @@ module.exports = function (app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.sendStatus(404);
   });
 };

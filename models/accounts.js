@@ -1,7 +1,7 @@
-// eslint-disable-next-line prettier/prettier
+// ESLint-disable-next-line prettier/prettier
 var bcrypt = require("bcryptjs");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
     email: {
       type: DataTypes.STRING,
@@ -17,10 +17,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.prototype.validPassword = function(password) {
+  User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
-  User.beforeCreate(function(user) {
+  User.beforeCreate(function (user) {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
