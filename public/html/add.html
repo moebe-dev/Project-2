@@ -13,137 +13,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANNI - employee add</title>
-  <!-- <link rel="stylesheet" href="css/style.css" /> -->
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+  <title>Anni | Add An Employee</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 
-  
+
 </head>
+<!-- DASHBOARD -->
 
-<body>
-  <h1>ANNI<h1>
+<body class="font-body">
+  <nav class="flex items-center justify-between flex-wrap bg-teal-900	p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <svg class="fill-current h-35 w-35 mt-4" width="35" height="35" viewBox="0 0 35 35"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z" />
+      </svg>
+      <span class="font-semibold text-xl tracking-tight">Anni Calendar</span>
+    </div>
+    <div class="text-sm lg:flex-grow">
+      <a href="/"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+        Dashboard
+      </a>
+      <a href="/add"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+        Add An Employee
+      </a>
+      <a href="/update"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+        Update Employee
+      </a>
+    </div>
+  </nav>
+  <br>
+
+  <!-- END DASHBOARD -->
+
+  <!-- FORM -->
+  <div class="container">
+    <div class="form_group">
+      <form class="w-full max-w-lg">
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+
+            <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold m-8 text-lg">Add An Employee</h2>
+            <!-- FIRST NAME -->
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold m-8" for="grid-first-name">
+              First Name </label>
+            <input type="text" name="firstName" id="firstName" value="" placeholder="First Name" maxlength="20"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 ml-8 mb-6 leading-tight focus:outline-none focus:bg-white" />
+
+            <!-- LAST NAME -->
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold m-8" for="grid-last-name">Last
+              Name </label>
+            <input type="text" name="lastName" id="lastName" value="" placeholder="Last Name" maxlength="20"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 ml-8 mb-6 leading-tight focus:outline-none focus:bg-white" />
+          </div>
+        </div>
+
+        <!-- HIRE DATE -->
+
+        <div class="inline-block relative w-64">
+          <label class="inline-block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mb-4 text-base">Hire
+            Date:</label>
+
+          <!-- SCRIPT FOR HIRE DATE: MONTH -->
+          <div class="text-sm lg:flex-grow">
+
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Month:</label><select
+              id="hireMonth" name="hireMonth"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 0; i < 11; i++) {
+                  var month = $("<option>");
+                  month.attr("value", i + 1);
+                  month.text(i + 1);
+                  $("#hireMonth").append(month);
+                }
+              </script>
+            </select>
+
+            <!-- SCRIPT FOR HIRE DATE: DAY -->
+
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Day:</label>
+            <select id="hireDay" name="hireDay"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 0; i < 31; i++) {
+                  var day = $("<option>");
+                  day.attr("value", i + 1);
+                  day.text(i + 1);
+                  $("#hireDay").append(day);
+                }
+              </script>
+            </select>
+
+            <!-- SCRIPT FOR HIRE DATE: YEAR -->
+
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Year:</label><select
+              id="hireYear" name="hireYear"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 1940; i < 2003; i++) {
+                  var year = $("<option>");
+                  year.attr("value", i);
+                  year.text(i);
+                  $("#hireYear").append(year);
+                }
+              </script>
+            </select>
+          </div>
+        </div>
+
+        <!-- HIRE DATE END -->
+
+        <!-- BIRTHDAY -->
+        <div class="inline-block relative w-64">
+
+          <label
+            class="inline-block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mt-8 mb-4 text-base">Birthday:
+          </label>
+
+          <div class="text-sm lg:flex-grow">
 
 
-  <h2 class>Sign Up</h2>
-  <form name="form1">
-    <div class="container">
-      <div class="form_group">
+            <!-- SCRIPT FOR BIRTHDAY: MONTH -->
 
-        <label><br><strong>Name: </strong><br><br></label>
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Month:</label><select
+              id="birthMonth" name="birthMonth"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 0; i < 11; i++) {
+                  var month = $("<option>");
+                  month.attr("value", i + 1);
+                  month.text(i + 1);
+                  $("#birthMonth").append(month);
+                }
+              </script>
+            </select>
 
-        <label>First Name </label>
-        <input type="text" name="firstName" id="firstName" value="" placeholder="First Name" maxlength="20" />
-        
-        <label>Last Name </label>
-        <input type="text" name="lastName" id="lastName" value="" placeholder="Last Name" maxlength="20" />
+            <!-- SCRIPT FOR BIRTHDAY: DAY -->
 
-      </div>
-      <div class="form_group">
-    
-        <label><br><strong>Hire Date: </strong><br><br></label>
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold m-8">Day:</label><select
+              id="birthDay" name="birthDay"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 0; i < 31; i++) {
+                  var day = $("<option>");
+                  day.attr("value", i + 1);
+                  day.text(i + 1);
+                  $("#birthDay").append(day);
+                }
+              </script>
+            </select>
 
-        <label>Month:</label><select id="hireMonth" name="hireMonth">
-          <script>
-            for(i=0; i<11; i++){
-              var month = $("<option>");
-              month.attr("value" , i + 1);
-              month.text(i+1);
-              $("#hireMonth").append(month);
-            }
-          </script>
-        </select>
+            <!-- SCRIPT FOR BIRTHDAY: YEAR -->
 
-        <label>Day:</label><select id="hireDay" name="hireDay">
-          <script>
-            for(i=0; i<31; i++){
-              var day = $("<option>");
-              day.attr("value" , i + 1);
-              day.text(i+1);
-              $("#hireDay").append(day);
-            }
-          </script>
-        </select>
+            <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Year:</label><select
+              id="birthYear" name="birthYear"
+              class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+              <script>
+                for (i = 1940; i < 2003; i++) {
+                  var year = $("<option>");
+                  year.attr("value", i);
+                  year.text(i);
+                  $("#birthYear").append(year);
+                }
+              </script>
+            </select>
+          </div>
+        </div>
 
-        <label>Year:</label><select id="hireYear" name="hireYear">
-          <script>
-            for(i=1940; i < 2003; i++){
-              var year = $("<option>");
-              year.attr("value" , i);
-              year.text(i);
-              $("#hireYear").append(year);
-            }
-          </script>
-        </select>
-      </div>
+        <!-- BIRTHDAY END -->
 
-      <div class="form_group">
-    
-        <label><br><strong>Birthday: </strong><br><br></label>
+        <!-- DEPARTMENT -->
 
-        <label>Month:</label><select id="birthMonth" name="birthMonth">
-          <script>
-            for(i=0; i<11; i++){
-              var month = $("<option>");
-              month.attr("value" , i + 1);
-              month.text(i+1);
-              $("#birthMonth").append(month);
-            }
-          </script>
-        </select>
+        <div class="form_group">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mt-4 mb-4 text-sm">Department:</label>
 
-        <label>Day:</label><select id="birthDay" name="birthDay">
-          <script>
-            for(i=0; i<31; i++){
-              var day = $("<option>");
-              day.attr("value" , i + 1);
-              day.text(i+1);
-              $("#birthDay").append(day);
-            }
-          </script>
-        </select>
+          <input type="text" name="department" id="department" value="" placeholder="Enter Employee Department"
+            maxlength="100"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 ml-8 mb-4 leading-tight focus:outline-none focus:bg-white" />
+        </div>
 
-        <label>Year:</label><select id="birthYear" name="birthYear">
-          <script>
-            for(i=1940; i < 2003; i++){
-              var year = $("<option>");
-              year.attr("value" , i);
-              year.text(i);
-              $("#birthYear").append(year);
-            }
-          </script>
-        </select>
-      </div>
-      <div class="form_group">
-        <label><br>Department:</label>
-      
-        <input type="text" name="department" id="department" value="" placeholder="Enter your department"
-          maxlength="100" />
-      </div>
-    
-      <div class="form_group">
-      
-        <label>Pay Rate:</label>
-        <input type="text" name="pay" id="pay" value="" placeholder="Enter your Salary" maxlength="1000" />
-      </div>
-      
-      <div class="form_group">
-        
-        <label>Comments:</label>
-        
-        <input type="text" name="comments" id="comments" value="" placeholder="Enter your comments" maxlength="1000" />
-      </div>
+        <div class="form_group">
 
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mb-4 text-sm">Pay
+            Rate:</label>
+          <input type="text" name="pay" id="pay" value="" placeholder="Enter Employee Salary" maxlength="1000"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 ml-8 mb-4 leading-tight focus:outline-none focus:bg-white" />
+        </div>
 
-      <button type="submit" id="submit">Submit</button>
+        <div class="form_group">
 
-  </div>
-  </form>
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mb-4 text-sm">Comments:</label>
 
-  <a href="/"><button>Home</button></a>
-  <script src="../js/add.js" type="text/javascript"></script>
+          <input type="text" name="comments" id="comments" value="" placeholder="Enter your comments" maxlength="1000"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 ml-8 mb-8 leading-tight focus:outline-none focus:bg-white" />
+        </div>
+    </div>
+
+    <div class="text-sm lg:flex-grow">
+      <button type="submit" id="submit"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 m-8 leading-none border rounded text-black border-black hover:border-indigo-500 hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">Submit</button>
+      </form>
+
+      <!-- END FORM -->
+      <a href="/"><button
+          class="block mt-4 lg:inline-block text-sm px-4 py-2 m-8 leading-none border rounded text-black border-black hover:border-indigo-500 hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">Home</button></a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/add.js" type="text/javascript"></script>
 </body>
 
 </html>
