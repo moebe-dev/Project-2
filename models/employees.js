@@ -13,9 +13,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     hireDateYear: {
       type: DataTypes.INTEGER
-      // isNumeric: true,
-      // min: 1940,
-      // max: 2020
     },
     hireDateMonth: {
       type: DataTypes.INTEGER,

@@ -1,42 +1,33 @@
-# ANNI Calendar
+## ANNI Calendar
 
-Anni Calender is a platform for users [Managers, Human Resources, and the like] to add employee work anniversaries, birthdays, and holidays. This allows users to set up reminders to send a recognition of sorts to their employees. 
+Anni Calendar is a platform for users [Managers, Human Resources, and the like] to add employee work anniversaries, birthdays, and holidays. This allows users to set up reminders to send recognition of sorts to their employees. 
 
-# How to Use
+## How to Use:
 
-Users will first have to create login creditinals and then can sign-in into the Anni platform. The users will see a calendar dashboard and they will have the option to add a new employee or update employee's information. Adding a new employee will be specfically for new hires. Updating employee information will allow users to go in and update any information necessary. 
+Users will first have to create login credentials and then can sign-in into the Anni platform. The users will see a calendar dashboard and they will have the option to add a new employee or update employee's information. Adding a new employee will be specifically for new hires. Updating employee information will allow users to go in and update any information necessary.
 
-# Technologies Used
-* HTML
-* TailwindCSS
-* BulmaCSS
-* Javascript
-* Alpine.js
-* ESLint
-* mySQL
-* Sequelize
-* Express.js
-* Node.js
-* bcrypt.js
-
-# Code Logic 
+## Code Logic: 
 
 * Use server.js to run the code in your terminal via Node.js
-    * this results in starting up express, the session, and connections to the config file and database
+* This results in starting up express, the session, and connections to the config file and database.
 
-* In the public folder, several HTML files are housed to serve the pages for the Anni platform. Each HTML has an javascript file to help the HTML interactive. BulmaCSS and TailwindCSS are used for the styling of the pages. 
+* In the public folder, several HTML files are housed to serve the pages for the Anni platform. Each HTML has a javascript file to help the HTML interactive. TailwindCSS is used for the styling of the pages. 
 
-* Three routes serve the connection to the back-end of the application from the front-end. htmlRoutes renders the information displayed on the HTML pages. apiRoutes renders the information when a user inserts new data from the form. loginRoutes renders the users creditials from when a user creates their login information/or logs in. 
+* Three routes serve the connection to the back-end of the application from the front-end. The HTML route renders the information displayed on the HTML pages. API routes render the information when a user inserts new data from the form. login routes render the users credentials from when a user creates their login information/or logs in. 
 
 * Models folder house the javascript files and the schema and seeds files where the data is being stored when a user inputs employee information in.
 
-# Credits 
-
-For this project we used a TailwindCSS component to create the calendar section of the dashboard. 
-
-Author: Mithicher Baro
-Date: 05/13/2020
-Title of Source Code: Calendar UI with TailwindCSS and AlpineJS
-Code Version: 1.2.0
-Type: TailwindCSS and Alpine.js
-Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindcss-and-alpinejs
+# Technologies Used:
+* HTML
+* CSS
+* TailwindCSS
+* Javascript
+* Alpine.js
+* ESLint
+* MySQL
+* Sequelize
+* Express.js
+* Node.js
+* Bcrypt.js
+* Heroku
+* JawsDB

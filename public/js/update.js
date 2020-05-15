@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $("#update-name").empty();
 
-  //adding an initial dropdown option with instructions
+  // Adding an initial dropdown option with instructions.
   var editContentOptionBlank = $("<option></option>");
   editContentOptionBlank.attr("value", "Select Employee to Edit");
   editContentOptionBlank.text("Select Employee to Edit");
@@ -10,14 +10,12 @@ $(document).ready(function() {
 
   $.get("/api/employees", function(data) {
     for (let i = 0; i < data.length; i++) {
-      // console.log("employees data update js: ", data[i].firstName + data[i].lastName);
-
       var editContentOption = $("<option></option>");
       editContentOption.attr({
         label: data[i].firstName + " " + data[i].lastName,
         value: data[i].firstName + " " + data[i].lastName,
         "data-selected": data[i].firstName + data[i].lastName,
-        "data-id-delete": data[i].id,
+        "data-id-delete": data[i].id
       });
       editContentOption.text(data[i].firstName + " " + data[i].lastName);
 
@@ -25,7 +23,7 @@ $(document).ready(function() {
     }
   });
 
-  //to capture id of dropdown option selected and storing the id to the edit button for each time it's selected
+  // Captures the id of dropdown option selected and storing the id to the edit button for each time it's selected.
   $("#update-name").change(function() {
     var buttonValue = $("#update-name")
       .find(":selected")
@@ -41,28 +39,23 @@ $(document).ready(function() {
 
     $.ajax({
       method: "DELETE",
-      url: "/api/employees/" + id,
+      url: "/api/employees/" + id
     }).then(function() {
-      console.log("record deleted");
       location.reload();
     });
   });
 
-  //Name reference variables
-  // var $firstName = $("#firstName");
-  // var $lastName = $("#lastName");/
-
-  //Hire Date reference variables
+  // Hire Dates reference variables
   var $hireDay = $("#hireDay");
   var $hireMonth = $("#hireMonth");
   var $hireYear = $("#hireYear");
 
-  //Birthday reference variables
+  // Birthday reference variables
   var $birthDay = $("#birthDay");
   var $birthMonth = $("#birthMonth");
   var $birthYear = $("#birthYear");
 
-  //Miscellaneous Form reference variables
+  // Miscellaneous Form reference variables
   var $department = $("#department");
   var $pay = $("#pay");
   var $comments = $("#comments");
@@ -73,8 +66,8 @@ $(document).ready(function() {
     var id = $(this).attr("data-id");
 
     var employee = {
-      // firstName: $firstName.val().trim(),
-      // lastName: $lastName.val().trim(),
+      // FirstName: $firstName.val().trim(),
+      // LastName: $lastName.val().trim(),
       hireDateYear: $hireYear.val().trim(),
       hireDateMonth: $hireMonth.val().trim(),
       hireDateDay: $hireDay.val().trim(),
@@ -83,28 +76,26 @@ $(document).ready(function() {
       birthdayDay: $birthDay.val().trim(),
       department: $department.val().trim(),
       pay: parseFloat($pay.val().trim()),
-      comments: $comments.val().trim(),
+      comments: $comments.val().trim()
     };
 
     $.ajax({
       url: "api/employeeUpdate/" + id,
       type: "PUT",
-      data: employee,
-    }).then(function() {
-      console.log("updated");
-    });
+      data: employee
+    }).then(function() {});
 
-    
+    // Name
     $("#update-name").val("");
-
+    // Hire - Day, MOnth, Year
     $("#hireDay").val("");
     $("#hireMonth").val("");
     $("#hireYear").val("");
-
+    // Birth - Day, Month, Year
     $("#birthDay").val("");
     $("#birthMonth").val("");
     $("#birthYear").val("");
-
+    // Department, Pay, Comments
     $("#department").val("");
     $("#pay").val("");
     $("#comments").val("");

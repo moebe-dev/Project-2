@@ -1,21 +1,17 @@
-<!-- form to update existing employee data in database
-
-    - similar to add form, replace name input with some sort of search/dropdown of existing employees
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anni | Update An Employee</title>
   <link rel="stylesheet" href="../styles/style.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
+  <link rel="shortcut icon" type="link" href="https://bit.ly/2AnKEBc">
+  <title>Anni | Update An Employee</title>
 </head>
 
 <!-- DASHBOARD -->
-
 <body class="font-body">
   <nav class="flex items-center justify-between flex-wrap bg-teal-900	p-6 sticky top-0 z-40">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -47,10 +43,7 @@
   </nav>
   <br>
 
-  <!-- END DASHBOARD -->
-
   <!-- FORM -->
-
   <div class="container">
     <div class="form_group">
       <form class="w-full max-w-lg">
@@ -60,12 +53,10 @@
             <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold m-8 text-lg">Update Employee</h2>
 
             <!-- EMPLOYEE NAME -->
-
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold m-8" for="grid-name">Name:
             </label>
 
             <!-- DROPDOWN SECTION -->
-
             <label for="update-name"
               class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Employee to Update:</label>
             <select id="update-name"
@@ -75,7 +66,6 @@
         </div>
 
         <!-- HIRE DATE -->
-
         <div class="inline-block relative w-64">
           <label class="inline-block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mb-4 text-base">Hire
             Date:</label>
@@ -87,11 +77,11 @@
               id="hireMonth" name="hireMonth"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                  var month = $("<option>");
-                  month.attr("value", "");
-                  month.text("");
-                  $("#hireMonth").append(month);
-                
+                var month = $("<option>");
+                month.attr("value", "");
+                month.text("");
+                $("#hireMonth").append(month);
+
                 for (i = 0; i < 11; i++) {
                   var month = $("<option>");
                   month.attr("value", i + 1);
@@ -102,15 +92,14 @@
             </select>
 
             <!-- SCRIPT FOR HIRE DATE: DAY -->
-
             <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Day:</label><select
               id="hireDay" name="hireDay"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                  var day = $("<option>");
-                  day.attr("value", "");
-                  day.text("");
-                  $("#hireDay").append(day);
+                var day = $("<option>");
+                day.attr("value", "");
+                day.text("");
+                $("#hireDay").append(day);
                 for (i = 0; i < 31; i++) {
                   var day = $("<option>");
                   day.attr("value", i + 1);
@@ -121,15 +110,14 @@
             </select>
 
             <!-- SCRIPT FOR HIRE DATE: YEAR -->
-
             <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Year:</label><select
               id="hireYear" name="hireYear"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                  var year = $("<option>");
-                  year.attr("value", "");
-                  year.text("");
-                  $("#hireYear").append(year);
+                var year = $("<option>");
+                year.attr("value", "");
+                year.text("");
+                $("#hireYear").append(year);
                 for (i = 2020; i > 1940; i--) {
                   var year = $("<option>");
                   year.attr("value", i);
@@ -140,10 +128,8 @@
             </select>
           </div>
         </div>
-        <!-- HIRE DATE END -->
 
         <!-- BIRTHDAY -->
-
         <div class="inline-block relative w-64">
 
           <label
@@ -153,15 +139,14 @@
           <div class="text-sm lg:flex-grow">
 
             <!-- SCRIPT FOR BIRTHDAY: MONTH -->
-
             <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Month:</label><select
               id="birthMonth" name="birthMonth"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                  var month = $("<option>");
-                  month.attr("value", "");
-                  month.text("");
-                  $("#birthMonth").append(month);
+                var month = $("<option>");
+                month.attr("value", "");
+                month.text("");
+                $("#birthMonth").append(month);
                 for (i = 0; i < 11; i++) {
                   var month = $("<option>");
                   month.attr("value", i + 1);
@@ -172,15 +157,14 @@
             </select>
 
             <!-- SCRIPT FOR BIRTHDAY: DAY -->
-
             <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Day:</label><select
               id="birthDay" name="birthDay"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                   var day = $("<option>");
-                  day.attr("value", "");
-                  day.text("");
-                  $("#birthDay").append(day);
+                var day = $("<option>");
+                day.attr("value", "");
+                day.text("");
+                $("#birthDay").append(day);
                 for (i = 0; i < 31; i++) {
                   var day = $("<option>");
                   day.attr("value", i + 1);
@@ -191,15 +175,14 @@
             </select>
 
             <!-- SCRIPT FOR BIRTHDAY: YEAR -->
-
             <label class="inline uppercase tracking-wide text-gray-700 text-xs font-bold ml-8">Year:</label><select
               id="birthYear" name="birthYear"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                   var year = $("<option>");
-                  year.attr("value", "");
-                  year.text("");
-                  $("#birthYear").append(year);
+                var year = $("<option>");
+                year.attr("value", "");
+                year.text("");
+                $("#birthYear").append(year);
                 for (i = 2020; i > 1940; i--) {
                   var year = $("<option>");
                   year.attr("value", i);
@@ -210,10 +193,8 @@
             </select>
           </div>
         </div>
-        <!-- BIRTHDAY END -->
 
         <!-- DEPARTMENT -->
-
         <div class="form_group">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-8 mt-4 mb-4 text-sm">Department:</label>
