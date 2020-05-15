@@ -90,9 +90,7 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteEmployee(idToDelete).then(function() {
-    refreshEmployees();
-  });
+  API.deleteEmployee(idToDelete).then(function() {});
 };
 
 // Add event listeners to the submit , get info and delete buttons.
