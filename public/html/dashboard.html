@@ -1,5 +1,7 @@
-<!-- 
-    main content:   - a calendar interface displaying the next month with any employee anniversaries/birthdays/holidays
+<!--
+Author: Mithicher Baro Date: 05/13/2020 Title of Source Code: Calendar UI with TailwindCSS and AlpineJS 
+Code Version: 1.2.0 Type: TailwindCSS and Alpine.js 
+Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindcss-and-alpinejs
 -->
 
 <!DOCTYPE html>
@@ -10,9 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../styles/style.css" />
-
   <script src="https://code.jquery.com/jquery.js"></script>
-  <title>Anni Calendar | Dashboard</title>
+  <link rel="shortcut icon" type="link" href="https://bit.ly/2AnKEBc">
+  <title>Anni | Dashboard</title>
 </head>
 
 <body class="font-body">
@@ -41,9 +43,7 @@
     </div>
   </nav>
   <br>
-  <!-- This is an example component -->
   <div>
-
     <link rel="dns-prefetch" href="//unpkg.com" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -58,13 +58,7 @@
     <div class="antialiased sans-serif bg-gray-100 h-screen">
       <div x-data="app()" x-init="[getEmployees(), initDate(), getNoOfDays()]" x-cloak>
         <div class="container mx-auto px-4 py-2 md:py-24">
-
-          <!-- <div class="font-bold text-gray-800 text-xl mb-4">
-				Schedule Tasks
-			</div> -->
-
           <div class="bg-white rounded-lg shadow overflow-hidden">
-
             <div class="flex items-center justify-between py-2 px-6">
               <div>
                 <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>
@@ -114,10 +108,6 @@
                       :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-gray-700 hover:bg-blue-200': isToday(date) == false }">
                     </div>
                     <div style="height: 80px;" class="overflow-y-auto mt-1">
-                      <!-- <div 
-										class="absolute top-0 right-0 mt-2 mr-2 inline-flex items-center justify-center rounded-full text-sm w-6 h-6 bg-gray-700 text-white leading-none"
-										x-show="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"
-										x-text="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"></div> -->
 
                       <template
                         x-for="event in events.filter(e => new Date(e.event_date).toDateString() ===  new Date(year, month, date).toDateString() )">
@@ -202,7 +192,6 @@
             </div>
           </div>
         </div>
-        <!-- /Modal -->
       </div>
 
       <script>
@@ -286,7 +275,6 @@
             },
 
             showEventModal(date) {
-              // open the modal
               this.openEventModal = true;
               this.event_date = new Date(this.year, this.month, date).toDateString();
             },
@@ -303,8 +291,8 @@
                   var firstName = data[i].firstName;
 
                   eventsAll.push({
-                    event_date: new Date(currentYear, month -1, day),
-                    event_title: data[i].firstName  + " work anniversary",
+                    event_date: new Date(currentYear, month - 1, day),
+                    event_title: data[i].firstName + " work anniversary",
                     event_theme: "yellow"
                   })
                 }
@@ -313,14 +301,13 @@
                 for (let i = 0; i < data.length; i++) {
 
                   var currentYear = 2020;
-                  // var year = data[i].birthdayYear;
                   var month = data[i].birthdayMonth;
                   var day = data[i].birthdayDay;
                   var firstName = data[i].firstName;
 
                   eventsAll.push({
-                    event_date: new Date(currentYear, month -1, day),
-                    event_title: data[i].firstName  + " birthday",
+                    event_date: new Date(currentYear, month - 1, day),
+                    event_title: data[i].firstName + " birthday",
                     event_theme: "green"
                   })
                 }
@@ -339,21 +326,14 @@
                 event_theme: this.event_theme
               });
 
-              console.log(this.events);
-
-              // clear the form data
               this.event_title = '';
               this.event_date = '';
               this.event_theme = 'blue';
-
-              //close the modal
               this.openEventModal = false;
             },
 
             getNoOfDays() {
               let daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-
-              // find where to start calendar day of week
               let dayOfWeek = new Date(this.year, this.month).getDay();
               let blankdaysArray = [];
               for (var i = 1; i <= dayOfWeek; i++) {
@@ -371,11 +351,7 @@
           }
         }
       </script>
-
-      <!-- <script src="../js/dashboard.js" type="text/javascript"></script> -->
     </div>
-
-
 </body>
 
 </html>
