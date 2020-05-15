@@ -26,10 +26,6 @@
       <span class="font-semibold text-xl tracking-tight">Anni Calendar</span>
     </div>
     <div class="text-sm lg:flex-grow">
-      <a href="/"
-        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
-        Home
-      </a>
       <a href="/add"
         class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
         Add New Employee
@@ -37,6 +33,10 @@
       <a href="/update"
         class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
         Update Employee
+      </a>
+      <a href="/logout"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+        Logout
       </a>
     </div>
   </nav>
@@ -303,8 +303,8 @@
                   var firstName = data[i].firstName;
 
                   eventsAll.push({
-                    event_date: new Date(currentYear, month, day),
-                    event_title: data[i].firstName + " work anniversary",
+                    event_date: new Date(currentYear, month -1, day),
+                    event_title: data[i].firstName  + " work anniversary",
                     event_theme: "yellow"
                   })
                 }
@@ -319,8 +319,8 @@
                   var firstName = data[i].firstName;
 
                   eventsAll.push({
-                    event_date: new Date(currentYear, month, day),
-                    event_title: data[i].firstName + " birthday",
+                    event_date: new Date(currentYear, month -1, day),
+                    event_title: data[i].firstName  + " birthday",
                     event_theme: "green"
                   })
                 }

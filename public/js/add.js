@@ -106,18 +106,18 @@ var handleFormSubmit = function(event) {
   };
   // console.log("Employee submit: ", employee);
 
-  if (
-    !(
-      employee.firstName &&
-      employee.lastName &&
-      employee.hireYear &&
-      employee.hireMonth &&
-      employee.hireDay
-    )
-  ) {
-    alert("You must enter an employee name and hire date!");
-    return;
-  }
+  // if (
+  //   !(
+  //     employee.firstName &&
+  //     employee.lastName &&
+  //     employee.hireYear &&
+  //     employee.hireMonth &&
+  //     employee.hireDay
+  //   )
+  // ) {
+  //   alert("You must enter an employee name and hire date!");
+  //   return;
+  // }
 
   API.addEmployee(employee).then(function() {
     // refreshEmployees();
