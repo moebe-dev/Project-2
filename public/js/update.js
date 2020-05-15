@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $(".update-name").empty();
+  $("#update-name").empty();
 
   //adding an initial dropdown option with instructions
   var editContentOptionBlank = $("<option></option>");
   editContentOptionBlank.attr("value", "Select Employee to Edit");
   editContentOptionBlank.text("Select Employee to Edit");
 
-  $(".update-name").append(editContentOptionBlank);
+  $("#update-name").append(editContentOptionBlank);
 
   $.get("/api/employees", function(data) {
     for (let i = 0; i < data.length; i++) {
@@ -14,30 +14,30 @@ $(document).ready(function() {
 
       var editContentOption = $("<option></option>");
       editContentOption.attr({
-        label: data[i].firstName + data[i].lastName,
-        value: data[i].firstName + data[i].lastName,
+        label: data[i].firstName + " " + data[i].lastName,
+        value: data[i].firstName + " " + data[i].lastName,
         "data-selected": data[i].firstName + data[i].lastName,
         "data-id-delete": data[i].id,
       });
       editContentOption.text(data[i].firstName + " " + data[i].lastName);
 
-      $(".update-name").append(editContentOption);
+      $("#update-name").append(editContentOption);
     }
   });
 
   //to capture id of dropdown option selected and storing the id to the edit button for each time it's selected
-  $("select.update-name").change(function() {
-    var buttonValue = $("select.update-name")
+  $("#update-name").change(function() {
+    var buttonValue = $("#update-name")
       .find(":selected")
       .attr("data-id-delete");
-    $(".update").attr("id", buttonValue);
-    $(".delete").attr("id", buttonValue);
+    $("#update").attr("data-id", buttonValue);
+    $("#delete").attr("data-id", buttonValue);
   });
 
-  $(".delete").on("click", function() {
+  $("#delete").on("click", function() {
     event.preventDefault();
 
-    var id = $(this).attr("id");
+    var id = $(this).attr("data-id");
 
     $.ajax({
       method: "DELETE",
@@ -67,10 +67,10 @@ $(document).ready(function() {
   var $pay = $("#pay");
   var $comments = $("#comments");
 
-  $(".update").on("click", function() {
+  $("#update").on("click", function() {
     event.preventDefault();
 
-    var id = $(this).attr("id");
+    var id = $(this).attr("data-id");
 
     var employee = {
       // firstName: $firstName.val().trim(),
@@ -93,5 +93,20 @@ $(document).ready(function() {
     }).then(function() {
       console.log("updated");
     });
+
+    
+    $("#update-name").val("");
+
+    $("#hireDay").val("");
+    $("#hireMonth").val("");
+    $("#hireYear").val("");
+
+    $("#birthDay").val("");
+    $("#birthMonth").val("");
+    $("#birthYear").val("");
+
+    $("#department").val("");
+    $("#pay").val("");
+    $("#comments").val("");
   });
 });

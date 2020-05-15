@@ -31,7 +31,7 @@ module.exports = function (app) {
 
   app.get("/members", isAuthenticated, function(req, res) {
     // console.log("req.user(members): ", req.user);
-    res.sendFile(path.join(__dirname, "../public/html/home.html"));
+    res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
   });
 
   app.get("/add", function (req, res) {

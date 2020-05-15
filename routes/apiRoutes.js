@@ -71,17 +71,64 @@ module.exports = function(app) {
   });
 
   app.put("/api/employeeUpdate/:id", function(req, res) {
-    console.log(req.body)
+    // console.log("update record req.body: ", req.body)
+    var newHireDateYear;
+    var newHireDateMonth;
+    var newHireDateDay;
+    var newBirthdayYear;
+    var newBirthdayMonth;
+    var newBirthdayDay;
+    var newDepartment;
+    var newPay;
+    var newComments;
+    // need to get all current database data
+    db.Employee.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(currentEmployeeRecord) {
+      // console.log("employees: ", employees[0].dataValues);
+      // console.log("currentEmployeeRecord to update: ", currentEmployeeRecord);
+    
+    // if statement: if the new inputs are not blank and not equal to the existing database values
+    if (req.body.hireDateYear !== "" && req.body.hireDateYear !== currentEmployeeRecord.hireDateYear) {
+      newHireDateYear = req.body.hireDateYear
+    }
+    if (req.body.hireDateMonth !== "") {
+      newHireDateMonth = req.body.hireDateMonth
+    }
+    if (req.body.hireDateDay !== "") {
+      newHireDateDay = req.body.hireDateDay
+    }
+    if (req.body.birthdayYear !== "") {
+      newBirthdayYear = req.body.birthdayYear
+    }
+    if (req.body.birthdayMonth !== "") {
+      newBirthdayMonth = req.body.birthdayMonth
+    }
+    if (req.body.birthdayDay !== "") {
+      newBirthdayDay = req.body.birthdayDay
+    }
+    if (req.body.department !== "") {
+      newDepartment = req.body.department
+    }
+    if (req.body.pay !== "NaN" && req.body.pay !== currentEmployeeRecord.pay) {
+      newPay = req.body.pay
+    }
+    if (req.body.comments !== "") {
+      newComments = req.body.comments
+    }
+
     db.Employee.update({
-      hireDateYear: req.body.hireDateYear,
-      hireDateMonth: req.body.hireDateMonth,
-      hireDateDay: req.body.hireDateDay,
-      birthdayYear: req.body.birthdayYear,
-      birthdayMonth: req.body.birthdayMonth,
-      birthdayDay: req.body.birthdayDay,
-      department: req.body.department,
-      pay: req.body.pay,
-      comments: req.body.comments
+      hireDateYear: newHireDateYear,
+      hireDateMonth: newHireDateMonth,
+      hireDateDay: newHireDateDay,
+      birthdayYear: newBirthdayYear,
+      birthdayMonth: newBirthdayMonth,
+      birthdayDay: newBirthdayDay,
+      department: newDepartment,
+      pay: newPay,
+      comments: newComments
     },{
         where: {
           id: req.params.id
@@ -90,6 +137,7 @@ module.exports = function(app) {
       .then(function(dbPost) {
         res.json(dbPost);
       });
+    });
   });
 
 

@@ -39,6 +39,10 @@
         class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
         Update Employee
       </a>
+      <a href="/logout"
+        class="block mt-4 lg:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">
+        Logout
+      </a>
     </div>
   </nav>
   <br>
@@ -69,12 +73,6 @@
             </select>
           </div>
         </div>
-        <!-- <label>First Name </label>
-        <input type="text" name="#firstName" id="#firstName" value="" placeholder="First Name" maxlength="20" />
-        
-        <label>Last Name </label>
-        <input type="text" name="#lastName" id="#lastName" value="" placeholder="Last Name" maxlength="20" /> -->
-
 
         <!-- HIRE DATE -->
 
@@ -89,6 +87,11 @@
               id="hireMonth" name="hireMonth"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
+                  var month = $("<option>");
+                  month.attr("value", "");
+                  month.text("");
+                  $("#hireMonth").append(month);
+                
                 for (i = 0; i < 11; i++) {
                   var month = $("<option>");
                   month.attr("value", i + 1);
@@ -104,6 +107,10 @@
               id="hireDay" name="hireDay"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
+                  var day = $("<option>");
+                  day.attr("value", "");
+                  day.text("");
+                  $("#hireDay").append(day);
                 for (i = 0; i < 31; i++) {
                   var day = $("<option>");
                   day.attr("value", i + 1);
@@ -119,7 +126,11 @@
               id="hireYear" name="hireYear"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                for (i = 1940; i < 2003; i++) {
+                  var year = $("<option>");
+                  year.attr("value", "");
+                  year.text("");
+                  $("#hireYear").append(year);
+                for (i = 2020; i > 1940; i--) {
                   var year = $("<option>");
                   year.attr("value", i);
                   year.text(i);
@@ -147,6 +158,10 @@
               id="birthMonth" name="birthMonth"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
+                  var month = $("<option>");
+                  month.attr("value", "");
+                  month.text("");
+                  $("#birthMonth").append(month);
                 for (i = 0; i < 11; i++) {
                   var month = $("<option>");
                   month.attr("value", i + 1);
@@ -162,6 +177,10 @@
               id="birthDay" name="birthDay"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
+                   var day = $("<option>");
+                  day.attr("value", "");
+                  day.text("");
+                  $("#birthDay").append(day);
                 for (i = 0; i < 31; i++) {
                   var day = $("<option>");
                   day.attr("value", i + 1);
@@ -177,7 +196,11 @@
               id="birthYear" name="birthYear"
               class="block mt-4 lg:inline-block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 ml-8 mb-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <script>
-                for (i = 1940; i < 2003; i++) {
+                   var year = $("<option>");
+                  year.attr("value", "");
+                  year.text("");
+                  $("#birthYear").append(year);
+                for (i = 2020; i > 1940; i--) {
                   var year = $("<option>");
                   year.attr("value", i);
                   year.text(i);
@@ -228,9 +251,6 @@
         class="block mt-4 lg:inline-block text-sm px-4 py-2 m-8 leading-none border rounded text-black border-black hover:border-indigo-500 hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">Delete</button>
       </form>
 
-      <!-- END FORM -->
-      <a href="/"><button
-          class="block mt-4 lg:inline-block text-sm px-4 py-2 m-8 leading-none border rounded text-black border-black hover:border-indigo-500 hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0">Home</button></a>
     </div>
     <!-- JAVASCRIPT -->
     <script src="../js/update.js"></script>
