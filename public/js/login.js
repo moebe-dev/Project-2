@@ -16,7 +16,7 @@ $(document).ready(function() {
       type: "POST",
       data: user
     }).then(function() {
-      // Reloads the page to get the updated list.
+      // Reloads the page to dashboard with current empolyee data rendered.
       location = "/members";
     });
   });
