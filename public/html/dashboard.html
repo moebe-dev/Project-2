@@ -56,7 +56,7 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
     </style>
 
     <div class="antialiased sans-serif bg-gray-100 h-screen">
-      <div x-data="app()" x-init="[getEmployees(), initDate(), getNoOfDays()]" x-cloak>
+      <div x-data="appLoad" x-init="[initDate(), getNoOfDays(), getEmployees()]" x-cloak>
         <div class="container mx-auto px-4 py-2 md:py-24">
           <div class="bg-white rounded-lg shadow overflow-hidden">
             <div class="flex items-center justify-between py-2 px-6">
@@ -316,7 +316,7 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
             },
 
             getEmployees() {
-              var updateEvents = [];
+              var that = this;
               $.get("/api/employees/anniversary", function (data) {
                 for (let i = 0; i < data.length; i++) {
 
@@ -326,7 +326,7 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
                   var day = data[i].hireDateDay;
                   var firstName = data[i].firstName;
 
-                  eventsAll.push({
+                  that.events.push({
                     event_date: new Date(currentYear, month - 1, day),
                     event_title: data[i].firstName + " work anniversary",
                     event_theme: "yellow"
@@ -341,7 +341,7 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
                   var day = data[i].birthdayDay;
                   var firstName = data[i].firstName;
 
-                  eventsAll.push({
+                  that.events.push({
                     event_date: new Date(currentYear, month - 1, day),
                     event_title: data[i].firstName + " birthday",
                     event_theme: "green"
@@ -386,6 +386,8 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
             }
           }
         }
+
+        var appLoad = app();
       </script>
     </div>
 </body>
