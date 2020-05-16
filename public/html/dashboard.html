@@ -118,7 +118,7 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
 												'border-green-200 text-green-800 bg-green-100': event.event_theme === 'green',
 												'border-purple-200 text-purple-800 bg-purple-100': event.event_theme === 'purple'
 											}">
-                          <p x-text="event.event_title" class="text-sm truncate leading-tight"></p>
+                          <p x-text="event.event_title" class="text-sm overflow-visible leading-tight"></p>
                         </div>
                       </template>
                     </div>
@@ -199,27 +199,63 @@ Web Address: https://tailwindcomponents.com/component/calendar-ui-with-tailwindc
         const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         var eventsAll = [
           {
-            event_date: new Date(2020, 3, 1),
-            event_title: "April Fool's Day",
+            event_date: new Date(2020, 0, 1),
+            event_title: "New Year's Day",
             event_theme: 'blue'
           },
 
           {
-            event_date: new Date(2020, 3, 10),
-            event_title: "Birthday",
-            event_theme: 'red'
+            event_date: new Date(2020, 0, 20),
+            event_title: "MLK Jr Birthday",
+            event_theme: 'blue'
           },
 
           {
-            event_date: new Date(2020, 3, 16),
-            event_title: "Upcoming Event",
-            event_theme: 'green'
+            event_date: new Date(2020, 1, 17),
+            event_title: "Washington's Birthday",
+            event_theme: 'blue'
           },
 
           {
             event_date: new Date(2020, 4, 25),
-            event_title: "work anniversary",
-            event_theme: 'yellow'
+            event_title: "Memorial Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 6, 4),
+            event_title: "Independence Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 8, 7),
+            event_title: "Labor Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 9, 12),
+            event_title: "Columbus Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 10, 11),
+            event_title: "Veterans Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 10, 26),
+            event_title: "Thanksgiving Day",
+            event_theme: 'blue'
+          },
+
+          {
+            event_date: new Date(2020, 11, 25),
+            event_title: "Christmas Day",
+            event_theme: 'blue'
           }
         ];
 

@@ -11,6 +11,7 @@ module.exports = function (app) {
     });
   });
 
+  // Gets all employees records ordered by hire date.
   app.get("/api/employees/anniversary", function (req, res) {
     db.Employee.findAll({
       order: [
@@ -26,6 +27,7 @@ module.exports = function (app) {
     });
   });
 
+  // Gets all employees records ordered by Birthday.
   app.get("/api/employees/birthday", function (req, res) {
     db.Employee.findAll({
       order: [
@@ -84,8 +86,8 @@ module.exports = function (app) {
       }
     }).then(function (currentEmployeeRecord) {
 
-      // If the new inputs are not blank and not equal to the existing database values.
-      if (req.body.hireDateYear !== "" && req.body.hireDateYear !== currentEmployeeRecord.hireDateYear) {
+      // If the new inputs are not blank, new value is added to sent object
+      if (req.body.hireDateYear !== "") {
         newHireDateYear = req.body.hireDateYear
       }
       if (req.body.hireDateMonth !== "") {
@@ -106,7 +108,7 @@ module.exports = function (app) {
       if (req.body.department !== "") {
         newDepartment = req.body.department
       }
-      if (req.body.pay !== "NaN" && req.body.pay !== currentEmployeeRecord.pay) {
+      if (req.body.pay !== "NaN") {
         newPay = req.body.pay
       }
       if (req.body.comments !== "") {
@@ -134,11 +136,12 @@ module.exports = function (app) {
     });
   });
 
-
+  // Sending login form to database for checking if the user already has an account and the correct corresponding password 
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.redirect("/members");
   });
 
+  // Sending user email and password from register form to create a new user in the database
   app.post("/api/signup", function (req, res) {
     db.User.create({
       email: req.body.email,
@@ -150,6 +153,7 @@ module.exports = function (app) {
     });
   });
 
+  // Logging out of the application.
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
