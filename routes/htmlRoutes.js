@@ -1,10 +1,9 @@
 /* eslint-disable prettier/prettier */
 var path = require("path");
-// var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-  // Load index page
+  // Load landing page: if user is signed-in to the session already, user will be redirected to dashboard page
   app.get("/", function (req, res) {
     if (req.user) {
       res.redirect("/members");
@@ -29,13 +28,12 @@ module.exports = function (app) {
     }
   });
 
+  // Once user is signed-in and authenticated, the user will be redirected to dashboard page
   app.get("/members", isAuthenticated, function(req, res) {
-    // console.log("req.user(members): ", req.user);
     res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
   });
 
   app.get("/add", function (req, res) {
-    // console.log("req.user(add): ", req.user);
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/html/add.html"));
     } else {
@@ -55,14 +53,6 @@ module.exports = function (app) {
   app.get("/dashboard", function (req, res) {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
-    } else {
-      res.redirect("/");
-    }
-  });
-
-  app.get("/dashboardtest", function (req, res) {
-    if (req.user) {
-      res.sendFile(path.join(__dirname, "../public/html/dashboardtest.html"));
     } else {
       res.redirect("/");
     }

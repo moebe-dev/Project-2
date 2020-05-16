@@ -4,10 +4,11 @@ $(document).ready(function() {
   // Adding an initial dropdown option with instructions.
   var editContentOptionBlank = $("<option></option>");
   editContentOptionBlank.attr("value", "Select Employee to Edit");
-  editContentOptionBlank.text("Select Employee to Edit");
+  editContentOptionBlank.text("Select Employee to Update");
 
   $("#update-name").append(editContentOptionBlank);
 
+  // A GET request from database to populate the dropdown menu with all current employee records 
   $.get("/api/employees", function(data) {
     for (let i = 0; i < data.length; i++) {
       var editContentOption = $("<option></option>");
@@ -32,6 +33,7 @@ $(document).ready(function() {
     $("#delete").attr("data-id", buttonValue);
   });
 
+  // Delete request to the database to remove the specified employee record
   $("#delete").on("click", function() {
     event.preventDefault();
 
@@ -60,14 +62,13 @@ $(document).ready(function() {
   var $pay = $("#pay");
   var $comments = $("#comments");
 
+  // Caputuring and sending any updated input fields in a PUT request to update the specified employee record
   $("#update").on("click", function() {
     event.preventDefault();
 
     var id = $(this).attr("data-id");
 
     var employee = {
-      // FirstName: $firstName.val().trim(),
-      // LastName: $lastName.val().trim(),
       hireDateYear: $hireYear.val().trim(),
       hireDateMonth: $hireMonth.val().trim(),
       hireDateDay: $hireDay.val().trim(),
